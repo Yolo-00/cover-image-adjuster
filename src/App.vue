@@ -19,6 +19,7 @@ const getPositionChange2 = (position: any) => {
 
 <template>
   <div class="page-bg">
+    <h1>图片封面位置调整组件</h1>
     <div class="text-lg">{{ position1 }}</div>
     <div class="mt-5">
       <input type="checkbox" v-model="disabled" /><label for="horns">是否禁用</label>
