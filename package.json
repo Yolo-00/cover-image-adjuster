@@ -1,0 +1,49 @@
+{
+  "name": "cover-image-adjuster",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "A Vue 3 component for adjusting cover images with draggable functionality",
+  "author": {
+    "name": "Yolo",
+    "email": "g20180630105@gmail.com",
+    "url": "https://github.com/Yolo-00"
+  },
+  "main": "dist/index.umd.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && rimraf dist",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "vue",
+    "vue3",
+    "component",
+    "image",
+    "cover",
+    "draggable"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "vue": "^3.4.21"
+  },
+  "devDependencies": {
+    "@types/node": "^22.4.1",
+    "@vitejs/plugin-vue": "^5.0.4",
+    "rimraf": "^6.0.1",
+    "typescript": "^5.2.2",
+    "vite": "^5.2.0",
+    "vue-tsc": "^2.0.6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yolo-00/cover-image-adjuster.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Yolo-00/cover-image-adjuster/issues"
+  },
+  "homepage": "https://github.com/Yolo-00/cover-image-adjuster#readme",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
