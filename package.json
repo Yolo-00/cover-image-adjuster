@@ -12,7 +12,8 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc --noEmit && rimraf dist && vite build",
+    "build:dev": "vue-tsc --noEmit && rimraf dist && vite build --mode development",
+    "build:prod": "vue-tsc --noEmit && rimraf dist && vite build --mode production",
     "preview": "vite preview"
   },
   "keywords": [
