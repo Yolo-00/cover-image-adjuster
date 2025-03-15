@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, onUnmounted, watch } from "vue";
 
-interface Props {
+export interface Props {
     src: string;
     width?: number;
     height?: number;
