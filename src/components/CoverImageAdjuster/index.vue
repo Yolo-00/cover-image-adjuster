@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onUnmounted, watch } from "vue";
+import { ref, onUnmounted, watch, CSSProperties } from "vue";
 
 export interface Props {
     src: string;
@@ -22,6 +22,21 @@ const props = withDefaults(defineProps<Props>(), {
 const emit = defineEmits<{
     positionChange: [position: { x: number; y: number }];
 }>();
+
+const styles: Record<string, CSSProperties> = {
+    draggableContainerStyle: {
+        position: "relative",
+        overflow: "hidden",
+        "-webkit-touch-callout": "none",
+    },
+    draggableContainerImgStyle: {
+        "position": "absolute",
+        "user-select": "none",
+        "-webkit-user-select": "none",
+        "transition": "opacity 0.3s",
+        "backface-visibility": "hidden",
+    }
+}
 
 const containerRef = ref<HTMLDivElement>();
 const imgRef = ref<HTMLImageElement>();
@@ -169,11 +184,13 @@ onUnmounted(() => {
 
 <template>
     <div ref="containerRef" class="draggable-container" :style="{
+        ...styles.draggableContainerStyle,
         width: `${width}px`,
         height: `${height}px`
     }">
         <img ref="imgRef" :src="src" @load="handleImageLoad" @mousedown.prevent="handleMouseDown"
             @touchstart.prevent="handleTouchStart" :style="{
+        ...styles.draggableContainerImgStyle,
         ...imageStyle,
         transform: `translate3d(${position.x}px, ${position.y}px, 0)`,
         opacity: imageLoaded ? 1 : 0,
@@ -182,19 +199,3 @@ onUnmounted(() => {
     }" />
     </div>
 </template>
-
-<style scoped>
-.draggable-container {
-    position: relative;
-    overflow: hidden;
-    -webkit-touch-callout: none;
-
-    &img {
-        position: absolute;
-        user-select: none;
-        -webkit-user-select: none;
-        transition: opacity 0.3s;
-        backface-visibility: hidden;
-    }
-}
-</style>

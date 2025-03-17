@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
-
 import CoverImageAdjuster from "./components/CoverImageAdjuster/index.vue";
+
 import output1 from "./assets/output1.jpg";
 import output2 from "./assets/output2.jpg";
 

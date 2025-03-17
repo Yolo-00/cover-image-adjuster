@@ -1,17 +1,18 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue';
 import { resolve } from 'node:path';
+import dts from 'vite-plugin-dts';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   return {
     base: "./",
-    plugins: [vue()],
+    plugins: [vue(), dts({ include: ['src/**/*.ts', 'src/**/*.d.ts', 'src/**/*.vue'], outDir: 'dist/types' })],
     build: mode === "production" ? {
       outDir: "dist", //输出文件名称
       lib: {
         entry: resolve(__dirname, './src/index.ts'), //指定组件编译入口文件
-        name: 'seamless-scroll',
+        name: 'cover-image-adjuster',
         fileName: (format) => `index.${format}.js` // 打包后的文件名
       }, //库编译模式配置
       rollupOptions: {
